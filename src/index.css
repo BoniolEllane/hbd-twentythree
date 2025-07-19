@@ -37,7 +37,6 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -48,13 +47,13 @@ h1 {
 }
 
 button {
-  border-radius: 8px;
+  border-radius: 50%;
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: var(--dark-blue);
 }
 
 /*light mode*/
@@ -73,9 +72,26 @@ button:hover {
   
 }
 
-.he1{
+.container{
   display: flex;
   flex-direction: row;
+  gap: 1em;
+}
+.container div{
+  border-radius: 1em;
+}
+p, h1{
+  padding: 1.5em;
+}
+p{
+  font-size: small;
+  line-height: 2.2em;
+}
+.headline-mobile{
+  display: none;
+}
+
+.he1{
   background-color:var(--blue);
   position: relative;
   color: white;
@@ -89,27 +105,97 @@ button:hover {
   right: -1em;
   top: -1.5em;
 }
+
+.section1{
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-items: center;
+  position: relative;
+}
+
+.s11{
+  background-color: var(--light-blue);
+  color: var(--dark-blue);
+}
+.s12{
+  background-color: var(--dark-blue);
+  color: white;
+}
+.s13{
+  background-color: var(--blue);
+  color: white;
+  padding: 0 0 2em;
+}
+
+.lImg{
+  margin: -2.5em 0em -2.5em;
+  height: 13em;
+  width: 75%;
+  z-index: 1;
+  border-radius: 1em;
+}
+.cat1{
+  height: 8em;
+  z-index: 2;
+  position: absolute;
+  top: 16em;
+  right: -2em;
+}
+.cat2{
+  position: absolute;
+  left: -1em;
+  bottom: -1em;
+  height: 8em;
+}
+.s13 button{
+  height: 4em;
+  padding: 2em;
+}
+
 /*dark mode */
 @media (prefers-color-scheme: dark) {
 
 }
 /*large phone size*/
 @media (max-width: 480px){
-  .he1{
-      border-radius: 2em;
-      padding-inline: 10px;
+  p{
+    font-size: medium;
+    line-height: normal;
   }
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  p, h1{
+    padding: 0.5em 0.5em;
+  }
+  .headline-mobile{
+    display: flex;
+  }
+
   .he1 img{
   height: 5.5em;
   position: absolute;
   right: -1em;
   top: -1em;
   }
+  .section1{
+    display: flex;
+    gap: 0.8em;
+  }
+.lImg{
+  margin: -1.8em 0em -1.8em;
+}
+
 }
 
 /*large phone size*/
 @media (min-width: 481px) and (max-width:768px) {
-  
+    .headline-mobile{
+    display: flex;
+  }
 }
 /*tablet size*/
 @media (min-width: 769px) and (max-width:1279px) {
