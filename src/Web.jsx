@@ -1,7 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
 import './index.css'
 import CircularText from './CircularText.jsx';
 import useSound from 'use-sound';
+
 
 import lovey1 from '/src/assets/lovey1.jpg';
 import lovey2 from '/src/assets/big.png';
@@ -38,6 +39,11 @@ const Web =()=> {
     play1();
   };
 
+ const [openModal, setOpenModal] = useState(null); // null, "modal1", or "modal2"
+
+  const open = (modalName) => setOpenModal(modalName);
+  const close = () => setOpenModal(null);
+
 
   return (
     <>
@@ -61,7 +67,7 @@ const Web =()=> {
           </div>
           <div className="s13" style={{paddingBottom:'1em'}}>
             <p style={{paddingBottom:'0em'}}>PEEP PEEP! INVITATION ALERT! THIS IS NOT A THREAT 👇</p>
-            <button>OMG! CLICK ME! CLICK ME!</button>
+            <button onClick={() => open('modal1')}>OMG! CLICK ME! CLICK ME!</button>
             <img src={cat3} alt="" className="cat2" onClick={soundClick}/>
           </div>
         </div>
@@ -110,7 +116,7 @@ const Web =()=> {
             <p>Happy Birthday Julland! I love you so much hehe. I wish you good health, more break, and opportunities. Always take care of yourself Lovey!</p>
             <img src={cat7} alt="" className="cat6" onClick={soundClick}/>
 
-            <button style={{padding:' 1em 3em 4em' }}>CLICK THIS TO
+            <button onClick={() => open('modal2')} style={{padding:' 1em 3em 4em' }}>CLICK THIS TO
              REDEEM YOUR GIFT!</button>
           </div>
         </div>
@@ -118,6 +124,31 @@ const Web =()=> {
       <div className="container-tablet">
         HEY!😡 YOU'RE NOT SUPPOSED TO SEE THIS IN TABLET OR SLIGHTLY SMALLER THAN PC SCREEN MODE. I HAVEN'T OPTIMIZED THE TABLET/SMALL LAPTOP SCREEN YET. GET YOUR PC/CP STINKY 😡
       </div>
+
+    <div className="modal-container">
+        <button className="open-button" onClick={() => open('modal1')}>Open Modal 1</button>
+        <button className="open-button" onClick={() => open('modal2')}>Open Modal 2</button>
+
+        {openModal === 'modal1' && (
+          <div className="modal-overlay" onClick={close}>
+            <div className="modal-box" onClick={(e) => e.stopPropagation()}>
+              <button className="close-button" onClick={close}>&times;</button>
+              <h2>Modal 1</h2>
+              <p>This is the first modal content.</p>
+            </div>
+          </div>
+        )}
+
+        {openModal === 'modal2' && (
+          <div className="modal-overlay" onClick={close}>
+            <div className="modal-box" onClick={(e) => e.stopPropagation()}>
+              <button className="close-button" onClick={close}>&times;</button>
+              <h2>Modal 2</h2>
+              <p>This is the second modal content.</p>
+            </div>
+          </div>
+        )}
+    </div>
     </>
   )
 }
