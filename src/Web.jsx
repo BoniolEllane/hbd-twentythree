@@ -3,7 +3,6 @@ import './index.css'
 import CircularText from './CircularText.jsx';
 import useSound from 'use-sound';
 
-
 import lovey1 from '/src/assets/lovey1.jpg';
 import lovey2 from '/src/assets/big.png';
 import lovey3 from '/src/assets/lovey2.png';
@@ -11,15 +10,14 @@ import cat1 from '/src/assets/headline.png';
 import cat2 from '/src/assets/section1.png';
 import cat3 from '/src/assets/section2.png';
 import cat4 from '/src/assets/section3.png';
-import cat5 from '/src/assets/section4.png';
 import cat6 from '/src/assets/section5.png';
 import cat7 from '/src/assets/section6.png';
 
 
 
 const Web = () => {
-  const soundUrl = '/src/assets/catnormal.mp3';
-  const soundUrl1 = '/src/assets/monstercat.mp3';
+  const soundUrl = './src/assets/catnormal.mp3';
+  const soundUrl1 = './src/assets/monstercat.mp3';
   const [playbackRate, setPlaybackRate] = React.useState(0.75);
   const [playbackRate1, setPlaybackRate1] = React.useState(0.75);
   const [play] = useSound(soundUrl, {
