@@ -15,16 +15,18 @@ import cat7 from '/src/assets/section6.png';
 
 
 const Web = () => {
-  const soundUrl = '/assets/catnormal.mp3';
-  const soundUrl1 = '/assets/monstercat.mp3';
+  const soundUrl = '/src/assets/catnormal.mp3';
+  const soundUrl1 = '/src/assets/monstercat.mp3';
   const [playbackRate, setPlaybackRate] = React.useState(0.75);
   const [playbackRate1, setPlaybackRate1] = React.useState(0.75);
   const [play] = useSound(soundUrl, {
     playbackRate,
+    interrupt: true,
     volume: 0.5,
   });
   const [play1] = useSound(soundUrl1, {
     playbackRate1,
+    interrupt: true,
     volume: 0.5,
   });
 
