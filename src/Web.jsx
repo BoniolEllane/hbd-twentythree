@@ -15,8 +15,16 @@ import cat7 from '/src/assets/section6.png';
 
 
 const Web = () => {
-  const soundUrl = '/src/assets/catnormal.mp3';
-  const soundUrl1 = '/src/assets/monstercat.mp3';
+  function resumeAudioContext() {
+  if (window.AudioContext || window.webkitAudioContext) {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    if (ctx.state === 'suspended') {
+      ctx.resume();
+    }
+  }
+}
+  const soundUrl = './src/assets/catnormal.mp3';
+  const soundUrl1 = './src/assets/monstercat.mp3';
   const [playbackRate, setPlaybackRate] = React.useState(0.75);
   const [playbackRate1, setPlaybackRate1] = React.useState(0.75);
   const [play] = useSound(soundUrl, {
@@ -29,16 +37,18 @@ const Web = () => {
   });
 
   const soundClick = () => {
-    setPlaybackRate(playbackRate + 0.1);
-      try {
+  resumeAudioContext();
+  setPlaybackRate(playbackRate + 0.1);
+  try {
     play();
   } catch (e) {
     console.warn('Audio play failed:', e);
   }
   };
   const soundClick1 = () => {
-    setPlaybackRate1(playbackRate1 + 0.1);
-   try {
+  resumeAudioContext();
+  setPlaybackRate1(playbackRate1 + 0.1);
+  try {
     play1();
   } catch (e) {
     console.warn('Audio play failed:', e);
