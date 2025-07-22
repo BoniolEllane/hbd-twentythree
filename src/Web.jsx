@@ -16,8 +16,8 @@ import cat7 from '/src/assets/section6.png';
 
 
 const Web = () => {
-  const soundUrl = './public/catnormal.mp3';
-  const soundUrl1 = './public/monstercat.mp3';
+  const soundUrl = '/src/assets/catnormal.mp3';
+  const soundUrl1 = '/src/assets/catnormal.mp3';
   const [playbackRate, setPlaybackRate] = React.useState(0.75);
   const [playbackRate1, setPlaybackRate1] = React.useState(0.75);
   const [play] = useSound(soundUrl, {
@@ -57,6 +57,7 @@ const Web = () => {
         </div>
         <div className="section1">
           <div className="s11">
+                        <button onClick={soundClick}></button>
             <p>This website will take you to a mind-boggling, and silly imageries and messages that you never once read in your whole life. Basically, you are the first in your bloodline to see this dedication masterpiece I crafted for the special day of my man. Happy 23rd birthday babycakes✨✨✨ </p>
           </div>
           <img src={lovey1} alt="" className="lImg" />
