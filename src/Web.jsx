@@ -16,6 +16,7 @@ import cat6 from '/src/assets/section5.png';
 import cat7 from '/src/assets/section6.png';
 
 
+
 const Web = () => {
   const soundUrl = './src/assets/cat-normal.mp3';
   const soundUrl1 = './src/assets/monster-cat.mp3';
