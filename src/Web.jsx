@@ -31,11 +31,19 @@ const Web = () => {
 
   const soundClick = () => {
     setPlaybackRate(playbackRate + 0.1);
+      try {
     play();
+  } catch (e) {
+    console.warn('Audio play failed:', e);
+  }
   };
   const soundClick1 = () => {
     setPlaybackRate1(playbackRate1 + 0.1);
+   try {
     play1();
+  } catch (e) {
+    console.warn('Audio play failed:', e);
+  }
   };
 
   const [openModal, setOpenModal] = useState(null); // null, "modal1", or "modal2"
