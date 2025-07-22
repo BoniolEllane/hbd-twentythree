@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './index.css'
 import CircularText from './CircularText.jsx';
 import useSound from 'use-sound';
@@ -13,6 +13,17 @@ import cat4 from '/src/assets/section3.png';
 import cat6 from '/src/assets/section5.png';
 import cat7 from '/src/assets/section6.png';
 
+
+useEffect(() => {
+  const resumeAudio = () => {
+    if (window.Howler && window.Howler.ctx && window.Howler.ctx.state === 'suspended') {
+      window.Howler.ctx.resume();
+    }
+    window.removeEventListener('click', resumeAudio);
+  };
+  window.addEventListener('click', resumeAudio);
+  return () => window.removeEventListener('click', resumeAudio);
+}, []);
 
 
 const Web = () => {
