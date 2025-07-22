@@ -14,18 +14,6 @@ import cat6 from '/src/assets/section5.png';
 import cat7 from '/src/assets/section6.png';
 
 
-useEffect(() => {
-  const resumeAudio = () => {
-    if (window.Howler && window.Howler.ctx && window.Howler.ctx.state === 'suspended') {
-      window.Howler.ctx.resume();
-    }
-    window.removeEventListener('click', resumeAudio);
-  };
-  window.addEventListener('click', resumeAudio);
-  return () => window.removeEventListener('click', resumeAudio);
-}, []);
-
-
 const Web = () => {
   const soundUrl = '/src/assets/catnormal.mp3';
   const soundUrl1 = '/src/assets/monstercat.mp3';
