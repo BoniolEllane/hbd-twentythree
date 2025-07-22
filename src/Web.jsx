@@ -16,11 +16,6 @@ import cat7 from '/src/assets/section6.png';
 
 
 const Web = () => {
-  function resumeAudioContext() {
-    if (Howler.ctx && Howler.ctx.state === 'suspended') {
-      Howler.ctx.resume();
-    }
-}
   const soundUrl = '/src/assets/catnormal.mp3';
   const soundUrl1 = '/src/assets/monstercat.mp3';
   const [playbackRate, setPlaybackRate] = React.useState(0.75);
@@ -35,22 +30,18 @@ const Web = () => {
   });
 
   const soundClick = () => {
-  resumeAudioContext();
-  setPlaybackRate(playbackRate + 0.1);
-  try {
+    if (Howler.ctx && Howler.ctx.state !== 'running') {
+      Howler.ctx.resume();
+    }
+    setPlaybackRate(playbackRate + 0.1);
     play();
-  } catch (e) {
-    console.warn('Audio play failed:', e);
-  }
   };
   const soundClick1 = () => {
-  resumeAudioContext();
-  setPlaybackRate1(playbackRate1 + 0.1);
-  try {
+    if (Howler.ctx && Howler.ctx.state !== 'running') {
+      Howler.ctx.resume();
+    }
+    setPlaybackRate1(playbackRate1 + 0.1);
     play1();
-  } catch (e) {
-    console.warn('Audio play failed:', e);
-  }
   };
 
   const [openModal, setOpenModal] = useState(null); // null, "modal1", or "modal2"
