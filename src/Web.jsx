@@ -57,7 +57,6 @@ const Web = () => {
         </div>
         <div className="section1">
           <div className="s11">
-                        <button onClick={soundClick}></button>
             <p>This website will take you to a mind-boggling, and silly imageries and messages that you never once read in your whole life. Basically, you are the first in your bloodline to see this dedication masterpiece I crafted for the special day of my man. Happy 23rd birthday babycakes✨✨✨ </p>
           </div>
           <img src={lovey1} alt="" className="lImg" />
