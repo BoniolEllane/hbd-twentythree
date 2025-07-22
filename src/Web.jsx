@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import {Howl, Howler} from 'howler';
-
 import './index.css'
 import CircularText from './CircularText.jsx';
 import useSound from 'use-sound';
@@ -17,27 +15,27 @@ import cat7 from '/src/assets/section6.png';
 
 
 const Web = () => {
-  // const soundUrl = '/src/assets/catnormal.mp3';
-  // const soundUrl1 = '/src/assets/monstercat.mp3';
-const sound = new Howl({
-  src: ['/src/assets/catnormal.mp3'],
-  volume: 0.5,
-  rate: 0.75,
-});
-const sound1 = new Howl({
-  src: ['/src/assets/monstercat.mp3'],
-  volume: 0.5,
-  rate: 0.75,
-});
+  const soundUrl = '/src/assets/catnormal.mp3';
+  const soundUrl1 = '/src/assets/monstercat.mp3';
+  const [playbackRate, setPlaybackRate] = React.useState(0.75);
+  const [playbackRate1, setPlaybackRate1] = React.useState(0.75);
+  const [play] = useSound(soundUrl, {
+    playbackRate,
+    volume: 0.5,
+  });
+  const [play1] = useSound(soundUrl1, {
+    playbackRate1,
+    volume: 0.5,
+  });
 
-const soundClick = () => {
-  sound.rate(sound.rate() + 0.1);
-  sound.play();
-};
-const soundClick1 = () => {
-  sound1.rate(sound1.rate() + 0.1);
-  sound1.play();
-};
+  const soundClick = () => {
+    setPlaybackRate(playbackRate + 0.1);
+    play();
+  };
+  const soundClick1 = () => {
+    setPlaybackRate1(playbackRate1 + 0.1);
+    play1();
+  };
 
   const [openModal, setOpenModal] = useState(null); // null, "modal1", or "modal2"
 
