@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Howler } from 'howler';
 import './index.css'
 import CircularText from './CircularText.jsx';
 import useSound from 'use-sound';
@@ -16,12 +17,9 @@ import cat7 from '/src/assets/section6.png';
 
 const Web = () => {
   function resumeAudioContext() {
-  if (window.AudioContext || window.webkitAudioContext) {
-    const ctx = new (window.AudioContext || window.webkitAudioContext)();
-    if (ctx.state === 'suspended') {
-      ctx.resume();
+    if (Howler.ctx && Howler.ctx.state === 'suspended') {
+      Howler.ctx.resume();
     }
-  }
 }
   const soundUrl = '/src/assets/catnormal.mp3';
   const soundUrl1 = '/src/assets/monstercat.mp3';
