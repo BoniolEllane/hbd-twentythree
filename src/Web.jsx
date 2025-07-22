@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { Howler } from 'howler';
+import React, { useState } from "react";
 import './index.css'
 import CircularText from './CircularText.jsx';
 import useSound from 'use-sound';
@@ -16,8 +15,8 @@ import cat7 from '/src/assets/section6.png';
 
 
 const Web = () => {
-  const soundUrl = '/src/assets/catnormal.mp3';
-  const soundUrl1 = '/src/assets/monstercat.mp3';
+  const soundUrl = '/assets/catnormal.mp3';
+  const soundUrl1 = '/assets/monstercat.mp3';
   const [playbackRate, setPlaybackRate] = React.useState(0.75);
   const [playbackRate1, setPlaybackRate1] = React.useState(0.75);
   const [play] = useSound(soundUrl, {
@@ -30,16 +29,10 @@ const Web = () => {
   });
 
   const soundClick = () => {
-    if (Howler.ctx && Howler.ctx.state !== 'running') {
-      Howler.ctx.resume();
-    }
     setPlaybackRate(playbackRate + 0.1);
     play();
   };
   const soundClick1 = () => {
-    if (Howler.ctx && Howler.ctx.state !== 'running') {
-      Howler.ctx.resume();
-    }
     setPlaybackRate1(playbackRate1 + 0.1);
     play1();
   };
