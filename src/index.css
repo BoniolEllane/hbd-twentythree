@@ -397,8 +397,8 @@ p {
 
 }
 
-/*large phone size
-@media (min-width: 481px) and (max-width:1279px) {
+/*large phone size*/
+@media (min-width: 481px) and (max-width:1023px) {
   #root {
     display: flex;
     align-items: center;
@@ -414,4 +414,4 @@ p {
   .container {
     display: none;
   }
-}*/
+}
