@@ -13,11 +13,14 @@ import cat4 from '/src/assets/section3.png';
 import cat6 from '/src/assets/section5.png';
 import cat7 from '/src/assets/section6.png';
 import cat8 from '/src/assets/modal1.png';
+import cat9 from '/src/assets/EXPLODE.gif';
+import cat10 from '/src/assets/happy.gif';
+import cat11 from '/src/assets/birthday.gif';
 
 
 const Web = () => {
-const [answer, setAnswer] = useState('');
-const [selectedAnswer, setSelectedAnswer] = useState('');
+  const [answer, setAnswer] = useState('');
+  const [selectedAnswer, setSelectedAnswer] = useState('');
   const soundUrl = '/catnormal.mp3';
   const soundUrl1 = '/monstercat.mp3';
   const [playbackRate, setPlaybackRate] = React.useState(0.75);
@@ -41,18 +44,18 @@ const [selectedAnswer, setSelectedAnswer] = useState('');
   };
 
   const spriteMap = {
-    yes:[6710,2050],
+    yes: [6710, 2050],
     no: [10, 5710],
-    gift:[9900, 33500],
+    gift: [9900, 33500],
   }
-  const [play3] =useSound('/spritemodal.mp3', {
+  const [play3] = useSound('/spritemodal.mp3', {
     sprite: {
-    yes:[6710,2050],
-    no: [10, 5710],
-    gift:[9900, 33500],
-},
-});
-    
+      yes: [6710, 2050],
+      no: [10, 5710],
+      gift: [9900, 33500],
+    },
+  });
+
 
   const [openModal, setOpenModal] = useState(null); // null, "modal1", or "modal2"
 
@@ -145,23 +148,33 @@ const [selectedAnswer, setSelectedAnswer] = useState('');
           <div className="modal-overlay" onClick={close}>
             <div className="modal-box" onClick={(e) => e.stopPropagation()}>
               <button className="close-button" onClick={close}>&times;</button>
-              <h2>HALO THERE!</h2>
-              {answer  === 'yes' && (
+              {answer === 'yes' && (
                 <div>
-                  <h3>Third Modal Heading</h3>
-                  <p>This is the third modal content. You chose YES.</p>
+                  <h3>YEPPPPERS!</h3>
+                  <img style={{ height: '15em' }} src={cat10} alt="" />
+                  <p>Since you agreed, let's meet at
+                  </p>
+                  <h3>👉July 25 or 26, 2025👈</h3>
+                  <p>📍Fantasy World SM Fairview and 🍗BBQ Chicken Fairview!</p>
+                  <p className="q">(ALL EXPENSES PAID! WOHOHOI. ANDDDDDDDDDDDDDDDDDDD...) </p><br />
+                  <h2 >ILOCOS TRIP AT AUGUST 9</h2> <br />
+                  <p className='r' style={{ fontSize: '0.3em', marginTop: '-5em', padding:'0' }}>Separate payment hehehe </p>
+
                 </div>
               )}
 
-              {answer  === 'no' && (
+              {answer === 'no' && (
                 <div>
-                  <h3>Fourth Modal Heading</h3>
-                  <p>This is the fourth modal content. You chose NO.</p>
+                  <h3>AW MEN...</h3>
+                  <p>Next time na lang 😔 </p>
+                  <img style={{ height: '15em' }} src={cat9} alt="" />
                 </div>
               )}
 
-              {answer  === '' && (
+              {answer === '' && (
                 <div>
+
+                  <h2>HALO THERE!</h2>
                   <img style={{ height: '15em' }} src={cat8} alt="" />
                   <p>Hi! I'm a watermelon cat. I'm going to take you on adventure. This is totally safe and consensual. If you pick no, I will explode.</p>
                   <div>
@@ -174,7 +187,7 @@ const [selectedAnswer, setSelectedAnswer] = useState('');
                           value="yes"
                           checked={selectedAnswer === 'yes'}
                           onChange={(e) => setSelectedAnswer(e.target.value)}
-                           onClick={() => play3({id: 'yes'})}
+                          onClick={() => play3({ id: 'yes' })}
                         />
                         Hell yeah~!
                       </label>
@@ -186,7 +199,7 @@ const [selectedAnswer, setSelectedAnswer] = useState('');
                           value="no"
                           checked={selectedAnswer === 'no'}
                           onChange={(e) => setSelectedAnswer(e.target.value)}
-                          onClick={() => play3({id: 'no'})}
+                          onClick={() => play3({ id: 'no' })}
                         />
                         No! You stanky cat!
                       </label>
@@ -196,7 +209,7 @@ const [selectedAnswer, setSelectedAnswer] = useState('');
                 </div>
               )}
             </div>
-            
+
           </div>
         )}
 
@@ -204,8 +217,9 @@ const [selectedAnswer, setSelectedAnswer] = useState('');
           <div className="modal-overlay" onClick={close}>
             <div className="modal-box" onClick={(e) => e.stopPropagation()}>
               <button className="close-button" onClick={close}>&times;</button>
-              <h2>Modal 2</h2>
-              <p>This is the second modal content.</p>
+              <h2>HELLO BWEBWE</h2>
+              <p>HAPPY BIRTHDAY MAHAL! Hehehehe. Yung gift ko sa'yo is paparating pa lang so baka ma-delay. But anyways, I found a picture of you. Hehehehe.</p>
+              <img src={cat11} alt="" />
             </div>
           </div>
         )}

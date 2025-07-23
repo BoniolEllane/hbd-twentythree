@@ -312,6 +312,12 @@ p {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   color: var(--dark-blue);
 }
+  .modal-box p.q {
+    font-size: 0.5em !important;
+    margin-top: -3em;
+    padding: 0.2em;
+  }
+
 
 .close-button {
   position: absolute;
@@ -400,6 +406,13 @@ p {
   .modal-box img{
     height: 10em !important;
     margin: 0;
+  }
+  .modal-box p.q {
+    font-size: 0.3em !important;
+    margin-top: -3em;
+  }
+    .modal-box p.r {
+    font-size: 0.5em !important;
   }
 
 }
