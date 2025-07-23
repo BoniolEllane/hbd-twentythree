@@ -218,7 +218,7 @@ const Web = () => {
             <div className="modal-box" onClick={(e) => e.stopPropagation()}>
               <button className="close-button" onClick={close}>&times;</button>
               <h2>HELLO BWEBWE</h2>
-              <p>HAPPY BIRTHDAY MAHAL! Hehehehe. Yung gift ko sa'yo is paparating pa lang so baka ma-delay. But anyways, I found a picture of you. Hehehehe.</p>
+              <p>HAPPY BIRTHDAY MAHAL! Hehehehe. Yung gift ko sa'yo is paparating pa lang so baka ma-delay hanggang August :( .  But anyways, I found a picture of you. Hehehehe. Abot ko na lang po pagdating hehehe</p>
               <img src={cat11} alt="" />
             </div>
           </div>

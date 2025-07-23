@@ -300,8 +300,10 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: fadeIn 0.3s ease forwards;
   z-index: 999;
 }
+
 
 .modal-box {
   background: white;
@@ -311,13 +313,30 @@ p {
   position: relative;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   color: var(--dark-blue);
+  transform: translateY(30px);
+  opacity: 0;
+  animation: slideUp 0.1s ease forwards;
 }
   .modal-box p.q {
     font-size: 0.5em !important;
     margin-top: -3em;
     padding: 0.2em;
   }
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 
 .close-button {
   position: absolute;
