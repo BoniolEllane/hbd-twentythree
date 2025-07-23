@@ -394,6 +394,13 @@ p {
   .s21 div {
     display: inline;
   }
+  .modal-overlay{
+    flex-direction: column;
+  }
+  .modal-box img{
+    height: 10em !important;
+    margin: 0;
+  }
 
 }
 

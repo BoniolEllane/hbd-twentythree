@@ -12,9 +12,12 @@ import cat3 from '/src/assets/section2.png';
 import cat4 from '/src/assets/section3.png';
 import cat6 from '/src/assets/section5.png';
 import cat7 from '/src/assets/section6.png';
+import cat8 from '/src/assets/modal1.png';
 
 
 const Web = () => {
+const [answer, setAnswer] = useState('');
+const [selectedAnswer, setSelectedAnswer] = useState('');
   const soundUrl = '/catnormal.mp3';
   const soundUrl1 = '/monstercat.mp3';
   const [playbackRate, setPlaybackRate] = React.useState(0.75);
@@ -36,6 +39,20 @@ const Web = () => {
     setPlaybackRate1(playbackRate1 + 0.1);
     play1();
   };
+
+  const spriteMap = {
+    yes:[6710,2050],
+    no: [10, 5710],
+    gift:[9900, 33500],
+  }
+  const [play3] =useSound('/spritemodal.mp3', {
+    sprite: {
+    yes:[6710,2050],
+    no: [10, 5710],
+    gift:[9900, 33500],
+},
+});
+    
 
   const [openModal, setOpenModal] = useState(null); // null, "modal1", or "modal2"
 
@@ -128,9 +145,58 @@ const Web = () => {
           <div className="modal-overlay" onClick={close}>
             <div className="modal-box" onClick={(e) => e.stopPropagation()}>
               <button className="close-button" onClick={close}>&times;</button>
-              <h2>Modal 1</h2>
-              <p>This is the first modal content.</p>
+              <h2>HALO THERE!</h2>
+              {answer  === 'yes' && (
+                <div>
+                  <h3>Third Modal Heading</h3>
+                  <p>This is the third modal content. You chose YES.</p>
+                </div>
+              )}
+
+              {answer  === 'no' && (
+                <div>
+                  <h3>Fourth Modal Heading</h3>
+                  <p>This is the fourth modal content. You chose NO.</p>
+                </div>
+              )}
+
+              {answer  === '' && (
+                <div>
+                  <img style={{ height: '15em' }} src={cat8} alt="" />
+                  <p>Hi! I'm a watermelon cat. I'm going to take you on adventure. This is totally safe and consensual. If you pick no, I will explode.</p>
+                  <div>
+                    <p>Do you want to go to adventure, pretty boi?</p>
+                    <div className="labels" style={{ display: 'flex', marginBottom: '1.5em' }}>
+                      <label>
+                        <input
+                          type="radio"
+                          name="yesno"
+                          value="yes"
+                          checked={selectedAnswer === 'yes'}
+                          onChange={(e) => setSelectedAnswer(e.target.value)}
+                           onClick={() => play3({id: 'yes'})}
+                        />
+                        Hell yeah~!
+                      </label>
+                      <br />
+                      <label style={{ marginLeft: '10px' }}>
+                        <input
+                          type="radio"
+                          name="yesno"
+                          value="no"
+                          checked={selectedAnswer === 'no'}
+                          onChange={(e) => setSelectedAnswer(e.target.value)}
+                          onClick={() => play3({id: 'no'})}
+                        />
+                        No! You stanky cat!
+                      </label>
+                    </div>
+                    <button onClick={() => setAnswer(selectedAnswer)}>THIS IS MY FINAL ANSWER!</button>
+                  </div>
+                </div>
+              )}
             </div>
+            
           </div>
         )}
 
